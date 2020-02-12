@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import Button from "./button/Button";
+import Button from "./components/button/Button";
+import Search from "./components/search/Search";
+import Result from "./components/results/Results"
 
 function App() {
   return (
@@ -9,16 +11,12 @@ function App() {
         <div className="jumbotron">
           <h1 className="title">Employee-Tracker</h1>
         </div>
-        <Button 
-        type="btn btn-success"
-        name="This is a green button"
-        />
-        {"\n"}
-        <Button 
-        type="btn btn-danger"
-        name="This is a red button"
-        />
-
+        <div className="searchDiv">
+          <Search />
+        </div>
+        <div className="resultsDisplay">
+          <Result />
+        </div>
 
 
 
