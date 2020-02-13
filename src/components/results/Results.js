@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./results.css";
 import API from "../../utils/API";
+import UsersContext from "../../utils/UsersContext"
 
 const Results = () => {
-  const [users, setUsers] = useState([]);
+  const [usersState, setUsersState] = useState({
+    users: []
+  });
+  const {users} = useContext(UsersContext);
 
   useEffect(() => {
     API.search().then(res => {
-      setUsers(res.data.results);
+      setUsersState(res.data.results);
     });
     return () => {
       console.log("cleaning up");
@@ -15,6 +19,7 @@ const Results = () => {
   }, []);
 
   return (
+    
     <div>
       <table className="table table-striped table-light">
         <thead className="thead-dark">
@@ -37,7 +42,7 @@ const Results = () => {
                 <td>{item.gender}</td>
                 <td>{item.phone}</td>
                 <td>
-                  <img src={item.picture.thumbnail}></img>
+                  <img src={item.picture.thumbnail} alt=""></img>
                 </td>
               </tr>
             </>
@@ -45,6 +50,7 @@ const Results = () => {
         </tbody>
       </table>
     </div>
+    
   );
 };
 

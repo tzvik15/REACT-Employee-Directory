@@ -1,8 +1,26 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import "./search.css";
+import Results from "../results/Results"
 
 
 const Form = ()=> {
+
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searching, setSearching] = useState(false);
+
+
+    useEffect(() => {
+        if (searching) {
+            console.log ("here");
+            console.log(Results);
+
+            setSearching(false)
+        }
+    },[searching])
+
+
+
+
     return (
     <>
       <h2>Search Employees</h2>  
@@ -11,7 +29,7 @@ const Form = ()=> {
             
             <input type="text" className="form-control" id="inputFiels" placeholder="John Doe"/>
             <div className="input-group-append">
-                <button className="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={()=>setSearching(true)}>Button</button>
             </div>
             
         </div>
