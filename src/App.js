@@ -11,12 +11,21 @@ function App() {
   const [usersState, setUsersState] = useState({
     users: [],
     //searching: false,
-    searchTerm: "",
-    onClick: (searchedFor) => {
-       setUsersState({ ...usersState, searchTerm:searchedFor });
-     }
+    searchTerm: ""
+    //  onClick: (searchedFor) => {
+    //     setUsersState({ ...usersState, banana:searchedFor });
+    //  console.log(searchedFor)
+    //   }
+   // handleClick(searchedFor)
+    //  }
   });
 
+ function handleClick(searchedFor) {
+  console.log("here");
+  console.log(searchedFor)
+   setUsersState({...usersState, searchTerm:searchedFor})
+  
+}
 
   useEffect(() => {
     API.search().then(res => {
@@ -47,7 +56,7 @@ function App() {
           </div>
         <UsersContext.Provider value={usersState}>
           <div className="searchDiv">
-            <Search />
+            <Search handleClick={handleClick}/>
           </div>
           <div className="resultsDisplay">
             <Result />

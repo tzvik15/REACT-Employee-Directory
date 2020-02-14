@@ -4,8 +4,8 @@ import "./search.css";
 import UsersContext from "../../utils/UsersContext"
 
 
-const Form = ()=> {
-    const state = useContext(UsersContext);
+function Form ({handleClick}) {
+    //const state = useContext(UsersContext);
     // const [searchTerm, setSearchTerm] = useState("");
     // const [searching, setSearching] = useState(false);
     
@@ -19,13 +19,14 @@ const Form = ()=> {
     //     }
     // },[searching])
 
-const searching=(event)=>{
-    event.preventDefault();
-    let searchedFor = event.target.parentNode.previousElementSibling.value;
-   // state.setUsersState({...state.usersState, searchTerm: searchedFor})
-   state.onClick(searchedFor);
-}
-
+// const searching=(event)=>{
+//     event.preventDefault();
+//     let searchedFor = event.target.parentNode.previousElementSibling.value;
+//    //state.onClick(searchedFor);
+//    handleClick(searchedFor)
+   
+// }
+//searching(event)
 //previousElementSibling:
     return (
     <>
@@ -35,7 +36,8 @@ const searching=(event)=>{
             
             <input type="text" className="form-control" id="inputFiels" placeholder="John Doe"/>
             <div className="input-group-append">
-                <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={(event)=>searching(event) }>Button</button>
+                <button className="btn btn-outline-secondary" type="button" id="button-addon2" 
+                onClick={(event)=>{let searchedFor = event.target.parentNode.previousElementSibling.value; handleClick(searchedFor) }  }>Button</button>
             </div>
             
         </div>
@@ -47,5 +49,5 @@ const searching=(event)=>{
 </>
     )
 }
-
+//handleClick(searchedFor)
 export default Form;

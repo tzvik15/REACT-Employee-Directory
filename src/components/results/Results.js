@@ -26,7 +26,10 @@ const Results = () => {
           </tr>
         </thead>
         <tbody>
-          {test.users.map((item, index) => (
+          {
+
+          test.searchTerm === "" ?
+          (test.users.map((item, index) => (
             <>
               <tr>
                 <td>{index + 1}</td>
@@ -39,7 +42,14 @@ const Results = () => {
                 </td>
               </tr>
             </>
-          ))}
+          ))
+          ) : (
+            <>
+            <h1>{test.users.filter()}</h1>
+            </>
+          )
+          
+          }
         </tbody>
       </table>
     </div>
