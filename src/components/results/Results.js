@@ -1,22 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./results.css";
-import API from "../../utils/API";
+//import API from "../../utils/API";
 import UsersContext from "../../utils/UsersContext"
 
 const Results = () => {
-  const [usersState, setUsersState] = useState({
-    users: []
-  });
-  const {users} = useContext(UsersContext);
+  // const [usersState, setUsersState] = useState({
+  //   users: []
+  // });
+  const test = useContext(UsersContext);
 
-  useEffect(() => {
-    API.search().then(res => {
-      setUsersState(res.data.results);
-    });
-    return () => {
-      console.log("cleaning up");
-    };
-  }, []);
+ 
 
   return (
     
@@ -33,7 +26,7 @@ const Results = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((item, index) => (
+          {test.users.map((item, index) => (
             <>
               <tr>
                 <td>{index + 1}</td>

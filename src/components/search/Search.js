@@ -1,26 +1,32 @@
-import React, {useState, useEffect} from "react"
+import React, {useContext} from "react"
 import "./search.css";
-import Results from "../results/Results"
+//import Results from "../results/Results"
+import UsersContext from "../../utils/UsersContext"
 
 
 const Form = ()=> {
+    const state = useContext(UsersContext);
+    // const [searchTerm, setSearchTerm] = useState("");
+    // const [searching, setSearching] = useState(false);
+    
 
-    const [searchTerm, setSearchTerm] = useState("");
-    const [searching, setSearching] = useState(false);
+    // useEffect(() => {
+    //     if (searching) {
+    //         console.log ("here");
+    //         console.log(Results);
 
+    //         setSearching(false)
+    //     }
+    // },[searching])
 
-    useEffect(() => {
-        if (searching) {
-            console.log ("here");
-            console.log(Results);
+const searching=(event)=>{
+    event.preventDefault();
+    let searchedFor = event.target.parentNode.previousElementSibling.value;
+   // state.setUsersState({...state.usersState, searchTerm: searchedFor})
+   state.onClick(searchedFor);
+}
 
-            setSearching(false)
-        }
-    },[searching])
-
-
-
-
+//previousElementSibling:
     return (
     <>
       <h2>Search Employees</h2>  
@@ -29,7 +35,7 @@ const Form = ()=> {
             
             <input type="text" className="form-control" id="inputFiels" placeholder="John Doe"/>
             <div className="input-group-append">
-                <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={()=>setSearching(true)}>Button</button>
+                <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={(event)=>searching(event) }>Button</button>
             </div>
             
         </div>
