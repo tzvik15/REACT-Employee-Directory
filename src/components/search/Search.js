@@ -1,33 +1,10 @@
-import React, {useContext} from "react"
+import React from "react"
 import "./search.css";
-//import Results from "../results/Results"
-import UsersContext from "../../utils/UsersContext"
+
 
 
 function Form ({handleClick}) {
-    //const state = useContext(UsersContext);
-    // const [searchTerm, setSearchTerm] = useState("");
-    // const [searching, setSearching] = useState(false);
-    
 
-    // useEffect(() => {
-    //     if (searching) {
-    //         console.log ("here");
-    //         console.log(Results);
-
-    //         setSearching(false)
-    //     }
-    // },[searching])
-
-// const searching=(event)=>{
-//     event.preventDefault();
-//     let searchedFor = event.target.parentNode.previousElementSibling.value;
-//    //state.onClick(searchedFor);
-//    handleClick(searchedFor)
-   
-// }
-//searching(event)
-//previousElementSibling:
     return (
     <>
       <h2>Search Employees</h2>  
@@ -49,5 +26,5 @@ function Form ({handleClick}) {
 </>
     )
 }
-//handleClick(searchedFor)
+
 export default Form;

@@ -10,19 +10,10 @@ function App() {
 
   const [usersState, setUsersState] = useState({
     users: [],
-    //searching: false,
     searchTerm: ""
-    //  onClick: (searchedFor) => {
-    //     setUsersState({ ...usersState, banana:searchedFor });
-    //  console.log(searchedFor)
-    //   }
-   // handleClick(searchedFor)
-    //  }
   });
 
  function handleClick(searchedFor) {
-  console.log("here");
-  console.log(searchedFor)
    setUsersState({...usersState, searchTerm:searchedFor})
   
 }
@@ -31,21 +22,10 @@ function App() {
     API.search().then(res => {
       setUsersState({...usersState, users: res.data.results});
     });
-    return () => {
-      console.log("cleaning up");
-    };
+    // return () => {
+    //   console.log("cleaning up");
+    // };
   }, []);
-
-  // useEffect(() => {
-  //   console.log(searchedFor)
-  // },[searchedFor])
-
-
-
-
-
-
-
 
 
   return (
