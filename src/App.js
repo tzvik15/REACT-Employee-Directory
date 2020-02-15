@@ -22,9 +22,9 @@ function App() {
     API.search().then(res => {
       setUsersState({...usersState, users: res.data.results});
     });
-    // return () => {
-    //   console.log("cleaning up");
-    // };
+    return () => {
+      console.log("cleaning up");
+    };
   }, []);
 
 
