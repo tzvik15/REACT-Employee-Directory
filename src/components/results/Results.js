@@ -51,9 +51,9 @@ const Results = () => {
             : test.users
                 .filter((item, index) => {
                   if (
-                    test.searchTerm === item.name.first ||
-                    test.searchTerm === item.name.last ||
-                    test.searchTerm === item.name.first + " " + item.name.last
+                    test.searchTerm.toUpperCase() === item.name.first.toUpperCase() ||
+                    test.searchTerm.toUpperCase() === item.name.last.toUpperCase() ||
+                    test.searchTerm.toUpperCase() === item.name.first.toUpperCase() + " " + item.name.last.toUpperCase()
                   ) {
                     return true;
                   }
