@@ -14,7 +14,7 @@ function App() {
   function handleClick(searchedFor) {
     setUsersState({ ...usersState, searchTerm: searchedFor });
   }
-
+ 
   useEffect(() => {
     API.search().then(res => {
       setUsersState({ ...usersState, users: res.data.results });
@@ -22,6 +22,7 @@ function App() {
     return () => {
       console.log("cleaning up");
     };
+     // eslint-disable-next-line
   }, []);
 
   return (
