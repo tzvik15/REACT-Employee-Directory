@@ -1,10 +1,8 @@
 import React from "react";
 
 const UsersContext = React.createContext({
-    users: [],
-   
-    searchTerm: "",
+  users: [],
+  searchTerm: ""
+});
 
-  });
-  
-  export default UsersContext;
+export default UsersContext;
